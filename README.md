@@ -15,19 +15,22 @@ pheno1=pheno
 sex=ifelse(pheno1$gender=='F',0,1)
 
 t.test(stroke0$sbp_v1,stroke1$sbp_v1)
-# ''p-value = 0.2538.so remain the null hypithesis : difference is equal to 0 .so we could say the sbp do not impact the disease.Drop sbp feature''
+
+''p-value = 0.2538.so remain the null hypithesis : difference is equal to 0 .so we could say the sbp do not impact the disease.Drop sbp feature''
 
 t.test(stroke0$age_v1,stroke1$age_v1)
-#p-value = 0.002035 .so reject the null hypithesis : difference is equal to 0.so we could say the age do impact the disease.
+
+p-value = 0.002035 .so reject the null hypithesis : difference is equal to 0.so we could say the age do impact the disease.
 mean(x)=54.33120  
 mean (y)=57.04688
-#So keep age feature
+So keep age feature
 
 
 male=pheno1[which(pheno1[,2]=='M'),]
 female=pheno1[which(pheno1[,2]=='F'),]
 t.test(female$stroke,male$stroke)
-#p-value = 0.09728.so remain the null hypithesis : difference is equal to 0 . so we could say the gender do not impact the disease.But the sex is not the t distribution, so not t.test
+
+p-value = 0.09728.so remain the null hypithesis : difference is equal to 0 . so we could say the gender do not impact the disease.But the sex is not the t distribution, so not t.test
 
 fm=glm(pheno1$stroke~pheno1$age_v1+pheno1$sbp_v1+sex,family = 'binomial')
 
@@ -44,7 +47,8 @@ for(i in 1:4106){
 plot(map$base_pair_position,y=-log10(pvalue),type='h')
 
 which(-log10(pvalue)>3)
-#685 1576 1876 1979  have siginificant effect to control the stroke.
+
+685 1576 1876 1979  have siginificant effect to control the stroke.
 
 
 
@@ -56,7 +60,8 @@ for(i in 1:4106){
 plot(map$base_pair_position,y=-log10(pvalue),type='h')
 
 which(-log10(pvalue)>2)
-#[1]  176  189  206  241  272  457  599  623  685  864  964 1013 1129 1159 1346 1576 1577 1631 1710 1787 1962 1979 2030 2209 2235 2258 2326 2429 2448 2547 2613 2780 2887 3209 3290 3330
+
+176  189  206  241  272  457  599  623  685  864  964 1013 1129 1159 1346 1576 1577 1631 1710 1787 1962 1979 2030 2209 2235 2258 2326 2429 2448 2547 2613 2780 2887 3209 3290 3330
 
 rf=randomForest(x=new,y=pheno1$stroke,ntree = 5000,importance = T)
 imp=importance(rf)
