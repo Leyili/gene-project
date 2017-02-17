@@ -15,7 +15,7 @@ pheno1=pheno
 sex=ifelse(pheno1$gender=='F',0,1)
 
 t.test(stroke0$sbp_v1,stroke1$sbp_v1)
-# p-value = 0.2538.so remain the null hypithesis : difference is equal to 0 .so we could say the sbp do not impact the disease.Drop sbp feature
+# ''p-value = 0.2538.so remain the null hypithesis : difference is equal to 0 .so we could say the sbp do not impact the disease.Drop sbp feature''
 
 t.test(stroke0$age_v1,stroke1$age_v1)
 #p-value = 0.002035 .so reject the null hypithesis : difference is equal to 0.so we could say the age do impact the disease.
