@@ -10,8 +10,9 @@ pheno1=pheno
 
 sum(is.na(pheno1)) # check whether include NA value.
 attach(pheno)
-qplot(id,sbp_v1)   # we get two outliers which sbp_v1= 0 and we all know the blood pressure could not be zero, so it should be missing value.
-## we need to deal with the NA value at first.
+qplot(id,sbp_v1)   # we get two outliers which sbp_v1= 0 and we all know the blood pressure could not be zero, so it should be missing value.we need to deal with the NA value at first.
+
+
 pheno1[which(pheno1$stroke=='NA'),]=1
 pheno1[which(pheno1$sbp_v1=='0'),]=mean(pheno1$sbp_v1,na.rm=T)
 sex=ifelse(pheno1$gender=='F',0,1)
