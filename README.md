@@ -2,7 +2,7 @@
 
 setwd('~/desktop/')
 load('gene.rdata')
-# now we have three dataset  pheno[include the id,age,sex,sbp]  map[position of those snp]  and geno[snp data ]
+now we have three dataset  pheno[include the id,age,sex,sbp]  map[position of those snp]  and geno[snp data ]
 #data explore:
 dim(geno)  # 1000  4106  high dimension data  hard to deal with
 pheno1=pheno
