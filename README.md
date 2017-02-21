@@ -1,15 +1,15 @@
 # gene-project high dimension data analysis
+
 setwd('~/desktop/')
 load('gene.rdata')
+#data explore:
 pheno1=pheno
+sum(is.na(pheno1))
 pheno1[which(pheno1$stroke=='NA'),]=1
 pheno1[which(pheno1$sbp_v1=='0'),]=mean(pheno1$sbp_v1,na.rm=T)
 sex=ifelse(pheno1$gender=='F',0,1)
 
 t.test(stroke0$sbp_v1,stroke1$sbp_v1)
-
-
-
 
 pheno1=pheno
 sex=ifelse(pheno1$gender=='F',0,1)
