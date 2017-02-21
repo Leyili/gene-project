@@ -63,6 +63,7 @@ which(-log10(pvalue)>2)
 
 176  189  206  241  272  457  599  623  685  864  964 1013 1129 1159 1346 1576 1577 1631 1710 1787 1962 1979 2030 2209 2235 2258 2326 2429 2448 2547 2613 2780 2887 3209 3290 3330
 
+new=impute.knn(x)
 rf=randomForest(x=new,y=pheno1$stroke,ntree = 5000,importance = T)
 imp=importance(rf)
 imp1=imp[,ncol(imp)-1]]
