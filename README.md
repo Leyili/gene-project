@@ -103,15 +103,21 @@ Because we just have the snp geno data which is 0,1,2. If we have the geno proje
 use the loocv method to get the best parameter of those model:
 
 vars=list()
+
+
 vars$randomForest=list(ntree=c(500,750,1000),mtry=c(5,10,20),
                        fs.meth=list(list('all'),list('rf',30),
                                     list('varclus',30,50)))
+                                    
+                                    
 vars$knn=list(k=c(3,5,7,11),norm=c(T,F),
               fs.meth=list(list('all'),
               list('rf',30),
               list('varclus',30,50)))
 
 all=join(knn,randomforest,by='variants')
+
+
 rankSystems(all,top=10,max=T) # then we could get the important gene feature.
 
 
