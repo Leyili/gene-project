@@ -83,9 +83,13 @@ order(aa[id])[1:10]
 #random forest
 
 rf=randomForest(x=gene1,y=pheno1$stroke,ntree = 5000,importance = T)
+
 imp=importance(rf)
+
 imp1=imp[,ncol(imp)-1]]
+
 rf.gene=names(imp)[order(imp,decreasing=T)[1:30]]
+
 rf.genes1
  [1]  206 2398  844 4091 3225  136 3370  801 3925 3958 3896 3573 2613   53 1250 3591 4008 3794
 [19] 3472  241 2531 4061 2184 2014  253 2905 2671 2918  988 3849
